@@ -7,7 +7,7 @@
     <groupId>com.optimaize.command4j</groupId>
     <artifactId>command4j</artifactId>
     <name>command4j</name>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.2</version>
     <packaging>jar</packaging>
 
     <url>https://github.com/optimaize/command4j</url>
