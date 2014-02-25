@@ -19,44 +19,178 @@
         <url>http://www.optimaize.com/</url>
     </organization>
     <developers>
-        <developer><name>Eike Kettner</name></developer>
-        <developer><name>Fabian Kessler</name></developer>
+        <developer>
+            <name>Eike Kettner</name>
+        </developer>
+        <developer>
+            <name>Fabian Kessler</name>
+        </developer>
     </developers>
     <licenses>
         <license>
             <name>MIT License</name>
+            <url>http://opensource.org/licenses/MIT</url>
         </license>
     </licenses>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <guava.version>15.0</guava.version>
+        <slf4japi.version>1.6.6</slf4japi.version>
+        <intellijannotations.version>12.0</intellijannotations.version>
+        <testng.version>6.8.7</testng.version>
+        <compiler.source>1.7</compiler.source>
+        <compiler.target>1.7</compiler.target>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>15.0</version>
+            <version>${guava.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.6.6</version>
+            <version>${slf4japi.version}</version>
         </dependency>
         <dependency> <!-- Yes it's also in the parent, but soon this module will become its own project. -->
             <groupId>com.intellij</groupId>
             <artifactId>annotations</artifactId>
-            <version>12.0</version>
+            <version>${intellijannotations.version}</version>
         </dependency>
         <dependency> <!-- Yes it's also in the parent, but soon this module will become its own project. -->
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.8.7</version>
+            <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- DO NOT ADD DEPENDENCIES unless you can really justify them well.
              This project tries to depend on as little as possible. -->
     </dependencies>
+
+    <scm>
+        <connection>scm:git:git://github.com/optimaize/command4j.git</connection>
+        <developerConnection>scm:git:git@github.com:optimaize/command4j.git</developerConnection>
+        <url>http://github.com/optimaize/command4j</url>
+    </scm>
+
+
+    <build>
+        <!-- Include the README and LICENSE files: -->
+        <resources>
+            <resource>
+                <directory>${project.basedir}</directory>
+                <includes>
+                    <include>README*</include>
+                    <include>LICENSE*</include>
+                </includes>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>${compiler.source}</source>
+                    <target>${compiler.target}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Required: javadoc JAR -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadoc</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.4.1</version>
+                <configuration>
+                    <arguments>-Dgpg.passphrase=${gpg.passphrase}</arguments>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.4</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype Nexus snapshot repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <name>Sonatype Nexus release repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <profiles>
+        <profile>
+            <id>release-sign-artifacts</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.4</version>
+                        <!--<configuration>-->
+                            <!--<passphrase>${gpg.passphrase}</passphrase>-->
+                        <!--</configuration>-->
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 
 </project>
