@@ -124,6 +124,12 @@ For the `@Nullable` and `@NotNull` annotations
 Command4j has been in development and use for long time internally at Optimaize, and is now published on GitHub.
 The interfaces and classes are well documented, and there is a fair amount of unit tests.
 
+
+### LICENSE
+
+MIT License
+
+
 ### AUTHORS
 
 Command4j was prototyped and written in large parts by Eike Kettner.
