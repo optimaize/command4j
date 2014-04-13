@@ -54,12 +54,12 @@
             <artifactId>slf4j-api</artifactId>
             <version>${slf4japi.version}</version>
         </dependency>
-        <dependency> <!-- Yes it's also in the parent, but soon this module will become its own project. -->
+        <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>annotations</artifactId>
             <version>${intellijannotations.version}</version>
         </dependency>
-        <dependency> <!-- Yes it's also in the parent, but soon this module will become its own project. -->
+        <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
