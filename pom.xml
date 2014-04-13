@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.optimaize.command4j</groupId>
     <artifactId>command4j</artifactId>
     <name>command4j</name>
-    <version>0.3-SNAPSHOT</version>
+    <version>0.4-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <url>https://github.com/optimaize/command4j</url>
@@ -73,7 +71,8 @@
         <connection>scm:git:git://github.com/optimaize/command4j.git</connection>
         <developerConnection>scm:git:git@github.com:optimaize/command4j.git</developerConnection>
         <url>http://github.com/optimaize/command4j</url>
-    </scm>
+      <tag>HEAD</tag>
+  </scm>
 
 
     <build>
