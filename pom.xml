@@ -5,7 +5,7 @@
     <groupId>com.optimaize.command4j</groupId>
     <artifactId>command4j</artifactId>
     <name>command4j</name>
-    <version>0.3</version>
+    <version>0.4-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <url>https://github.com/optimaize/command4j</url>
@@ -52,12 +52,12 @@
             <artifactId>slf4j-api</artifactId>
             <version>${slf4japi.version}</version>
         </dependency>
-        <dependency> <!-- Yes it's also in the parent, but soon this module will become its own project. -->
+        <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>annotations</artifactId>
             <version>${intellijannotations.version}</version>
         </dependency>
-        <dependency> <!-- Yes it's also in the parent, but soon this module will become its own project. -->
+        <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
@@ -71,7 +71,7 @@
         <connection>scm:git:git://github.com/optimaize/command4j.git</connection>
         <developerConnection>scm:git:git@github.com:optimaize/command4j.git</developerConnection>
         <url>http://github.com/optimaize/command4j</url>
-      <tag>command4j-0.3</tag>
+      <tag>HEAD</tag>
   </scm>
 
 
