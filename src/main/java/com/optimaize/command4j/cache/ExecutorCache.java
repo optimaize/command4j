@@ -9,7 +9,6 @@ import com.google.common.util.concurrent.UncheckedExecutionException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.io.IOException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 
@@ -29,16 +28,21 @@ public final class ExecutorCache {
 
     private final Cache<ExecutorCacheKey, Object> cache;
 
+    /**
+     * Creates a cache with the given Guava cache.
+     */
     public ExecutorCache(@NotNull Cache<ExecutorCacheKey, Object> cache) {
         this.cache = cache;
     }
 
+    /**
+     * Creates a cache with a default Guava cache that works for most scenarios.
+     */
     public ExecutorCache() {
         this.cache = CacheBuilder
                 .newBuilder()
-                .softValues()
+                .softValues() //disputable.
                 .maximumSize(500)
-                .weakKeys()
                 .build();
     }
 
