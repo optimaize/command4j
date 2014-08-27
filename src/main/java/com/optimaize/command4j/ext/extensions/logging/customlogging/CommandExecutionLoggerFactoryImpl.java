@@ -13,14 +13,27 @@ public class CommandExecutionLoggerFactoryImpl implements CommandExecutionLogger
 
     @NotNull
     private final Logger logger;
+    private final boolean logArgumentInResult;
 
+    /**
+     * Uses logArgumentInResult=false.
+     */
     public CommandExecutionLoggerFactoryImpl(@NotNull Logger logger) {
+        this(logger, false);
+    }
+
+    /**
+     * @param logArgumentInResult Optionally writes the argument with the result line again.
+     *                            This is useful when either you only log results (and not requests), or you want it more convenient and don't mind generating larger log files.
+     */
+    public CommandExecutionLoggerFactoryImpl(@NotNull Logger logger, boolean logArgumentInResult) {
         this.logger = logger;
+        this.logArgumentInResult = logArgumentInResult;
     }
 
     @Override @NotNull
     public <A,R> CommandExecutionLogger<A, R> make(@NotNull Command<A, R> command) {
-        return new CommandExecutionLoggerImpl<>(logger);
+        return new CommandExecutionLoggerImpl<>(logger, logArgumentInResult);
     }
 
 }
