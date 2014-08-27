@@ -121,7 +121,7 @@ For the `@Nullable` and `@NotNull` annotations
 
 ### STATE
 
-Command4j has been in development and use for long time internally at Optimaize, and is now published on GitHub.
+Command4j has been in development at http://www.optimaize.com for use in the http://www.nameapi.org web services for a long time, and is now published on GitHub.
 The interfaces and classes are well documented, and there is a fair amount of unit tests.
 
 
