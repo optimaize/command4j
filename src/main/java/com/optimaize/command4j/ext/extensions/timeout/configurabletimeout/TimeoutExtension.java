@@ -1,18 +1,21 @@
 package com.optimaize.command4j.ext.extensions.timeout.configurabletimeout;
 
+import com.google.common.base.Function;
+import com.google.common.base.Optional;
+import com.google.common.base.Throwables;
+import com.optimaize.command4j.Command;
+import com.optimaize.command4j.ExecutionContext;
+import com.optimaize.command4j.Mode;
+import com.optimaize.command4j.ModeExtension;
+import com.optimaize.command4j.commands.BaseCommandInterceptor;
+import com.optimaize.command4j.lang.Duration;
+import com.optimaize.command4j.lang.Key;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeoutException;
-
-import com.optimaize.command4j.*;
-import com.optimaize.command4j.lang.Duration;
-import com.optimaize.command4j.commands.BaseCommand;
-import com.google.common.base.Function;
-import com.google.common.base.Optional;
-import com.google.common.base.Throwables;
-import com.optimaize.command4j.lang.Key;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Allows a maximal time for the execution, or aborts by throwing a {@link TimeoutException}.
@@ -49,12 +52,11 @@ public class TimeoutExtension implements ModeExtension {
         }).or(cmd);
     }
 
-    public static class Interceptor<A, R> extends BaseCommand<A, R> {
+    public static class Interceptor<A, R> extends BaseCommandInterceptor<A, R> {
         private final Duration duration;
-        private final Command<A, R> delegate;
 
         public Interceptor(@NotNull Command<A, R> delegate, @NotNull Duration duration) {
-            this.delegate = delegate;
+            super(delegate);
             this.duration = duration;
         }
 

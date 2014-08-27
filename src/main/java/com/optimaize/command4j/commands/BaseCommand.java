@@ -51,4 +51,9 @@ public abstract class BaseCommand<A, R> implements CombinableCommand<A,R> {
     public String toString() {
         return getClass().getSimpleName();
     }
+
+    @Override
+    public String getName() {
+        return getClass().getSimpleName();
+    }
 }

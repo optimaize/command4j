@@ -31,4 +31,10 @@ class SetValueCommand<A, R, V> extends BaseCommand<A, R> {
     public String toString() {
         return "SetValue(" + delegate + "<<=" + key + "=" + value + ")";
     }
+
+    @Override
+    public String getName() {
+        return "SetValue(" + delegate.getName()+")";
+    }
+
 }

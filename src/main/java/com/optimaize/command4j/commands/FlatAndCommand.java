@@ -14,10 +14,12 @@ import java.util.List;
  * @author Eike Kettner
  */
 class FlatAndCommand<A, R> extends BaseListCommand<A, R> {
+    @NotNull
     private final Command<A, ? extends Iterable<R>> first;
+    @NotNull
     private final Command<A, R> second;
 
-    FlatAndCommand(Command<A, ? extends Iterable<R>> first, Command<A, R> second) {
+    FlatAndCommand(@NotNull Command<A, ? extends Iterable<R>> first, @NotNull Command<A, R> second) {
         this.first = first;
         this.second = second;
     }
@@ -31,7 +33,33 @@ class FlatAndCommand<A, R> extends BaseListCommand<A, R> {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        FlatAndCommand that = (FlatAndCommand) o;
+
+        if (!first.equals(that.first)) return false;
+        if (!second.equals(that.second)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = first.hashCode();
+        result = 31 * result + second.hashCode();
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "FlatAnd(" + first + ", " + second + ")";
     }
+
+    @Override
+    public String getName() {
+        return "FlatAnd(" + first.getName() + "/" + second.getName() + ")";
+    }
+
 }

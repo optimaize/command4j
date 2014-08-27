@@ -30,4 +30,8 @@ class AndCommand<A, R> extends AbstractCompoundCommand<A, A, R, List<R>> {
     public String toString() {
         return "And(" + super.toString() + ")";
     }
+    @Override
+    public String getName() {
+        return "And(" + super.getName() + ")";
+    }
 }

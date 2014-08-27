@@ -47,4 +47,16 @@ public interface Command<A, R> {
     @Nullable
     R call(@NotNull Optional<A> arg, @NotNull ExecutionContext ec) throws Exception;
 
+    /**
+     * Like Java's Thread, a Command has a name.
+     *
+     * <p>Because toString() can become long with all the interceptors wrapping a base command, this
+     * keeps it simple to what it actually does.</p>
+     *
+     * <p>Certain kinds of combined commands, like a ComposedCommand or a ConditionCommand, don't have a single
+     * name, they show the names of the contained commands.</p>
+     *
+     * @return an identifier, not unique but usually distinguishable
+     */
+    String getName();
 }

@@ -7,7 +7,7 @@ import com.optimaize.command4j.Command;
 import com.optimaize.command4j.ExecutionContext;
 import com.optimaize.command4j.Mode;
 import com.optimaize.command4j.ModeExtension;
-import com.optimaize.command4j.commands.BaseCommand;
+import com.optimaize.command4j.commands.BaseCommandInterceptor;
 import com.optimaize.command4j.lang.Key;
 import org.jetbrains.annotations.NotNull;
 
@@ -50,13 +50,11 @@ public class MaxConcurrentRunningExtension implements ModeExtension {
         }).or(cmd);
     }
 
-    public static class Interceptor<A, R> extends BaseCommand<A, R> {
-        @NotNull
-        private final Command<A, R> delegate;
+    public static class Interceptor<A, R> extends BaseCommandInterceptor<A, R> {
         private final MaxConcurrentState strategy;
 
         public Interceptor(@NotNull Command<A, R> delegate, MaxConcurrentState strategy) {
-            this.delegate = delegate;
+            super(delegate);
             this.strategy = strategy;
         }
 

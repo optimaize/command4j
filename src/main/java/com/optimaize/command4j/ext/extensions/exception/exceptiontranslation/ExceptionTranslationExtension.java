@@ -1,10 +1,13 @@
 package com.optimaize.command4j.ext.extensions.exception.exceptiontranslation;
 
-import com.optimaize.command4j.*;
-import com.optimaize.command4j.commands.BaseCommand;
 import com.google.common.base.Function;
 import com.google.common.base.Optional;
 import com.google.common.base.Throwables;
+import com.optimaize.command4j.Command;
+import com.optimaize.command4j.ExecutionContext;
+import com.optimaize.command4j.Mode;
+import com.optimaize.command4j.ModeExtension;
+import com.optimaize.command4j.commands.BaseCommandInterceptor;
 import com.optimaize.command4j.lang.Key;
 import org.jetbrains.annotations.NotNull;
 
@@ -54,12 +57,11 @@ public class ExceptionTranslationExtension implements ModeExtension {
         }).or(cmd);
     }
 
-    public static class Interceptor<A, R> extends BaseCommand<A, R> {
-        private final Command<A, R> delegate;
+    public static class Interceptor<A, R> extends BaseCommandInterceptor<A, R> {
         private final ExceptionTranslator exceptionTranslator;
 
         public Interceptor(@NotNull Command<A, R> delegate, @NotNull ExceptionTranslator exceptionTranslator) {
-            this.delegate = delegate;
+            super(delegate);
             this.exceptionTranslator = exceptionTranslator;
         }
 

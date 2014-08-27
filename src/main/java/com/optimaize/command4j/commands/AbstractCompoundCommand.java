@@ -7,6 +7,9 @@ import com.optimaize.command4j.Command;
 import com.optimaize.command4j.ExecutionContext;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author Eike Kettner
  */
@@ -59,5 +62,13 @@ abstract class AbstractCompoundCommand<A, B, T, E extends Iterable<T>> extends B
     @Override
     public String toString() {
         return "Compound(" + joiner.join(commands) + ")";
+    }
+    @Override
+    public String getName() {
+        List<String> names = new ArrayList<>();
+        for (Command<B, T> command : commands) {
+            names.add(command.getName());
+        }
+        return "Compound(" + joiner.join(names) + ")";
     }
 }

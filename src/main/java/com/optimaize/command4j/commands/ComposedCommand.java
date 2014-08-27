@@ -54,4 +54,8 @@ final class ComposedCommand<A, B, R> extends BaseCommand<A, R> {
     public String toString() {
         return g.toString() + "(" + f.toString() + ")";
     }
+    @Override
+    public String getName() {
+        return "Composed("+g.getName() + "(" + f.getName() + "))";
+    }
 }

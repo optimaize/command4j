@@ -40,4 +40,40 @@ final class ConditionCommand<A, R> extends BaseCommand<A, R> {
             return secondary.call(arg, ec);
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ConditionCommand that = (ConditionCommand) o;
+
+        if (!condition.equals(that.condition)) return false;
+        if (!primary.equals(that.primary)) return false;
+        if (!secondary.equals(that.secondary)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = primary.hashCode();
+        result = 31 * result + secondary.hashCode();
+        result = 31 * result + condition.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "ConditionCommand{" +
+                "primary=" + primary +
+                ", secondary=" + secondary +
+                ", condition=" + condition +
+                '}';
+    }
+
+    @Override
+    public String getName() {
+        return "Condition(" +primary.getName() + "/" + secondary.getName()+")";
+    }
 }

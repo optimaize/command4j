@@ -1,8 +1,11 @@
 package com.optimaize.command4j.ext.extensions.logging.stdoutlogging;
 
-import com.optimaize.command4j.*;
-import com.optimaize.command4j.commands.BaseCommand;
 import com.google.common.base.Optional;
+import com.optimaize.command4j.Command;
+import com.optimaize.command4j.ExecutionContext;
+import com.optimaize.command4j.Mode;
+import com.optimaize.command4j.ModeExtension;
+import com.optimaize.command4j.commands.BaseCommandInterceptor;
 import com.optimaize.command4j.lang.Key;
 import org.jetbrains.annotations.NotNull;
 
@@ -45,11 +48,10 @@ public class StdoutLoggingExtension implements ModeExtension {
         return cmd;
     }
 
-    public static class Interceptor<A, R> extends BaseCommand<A, R> {
-        private final Command<A, R> delegate;
+    public static class Interceptor<A, R> extends BaseCommandInterceptor<A, R> {
 
         public Interceptor(@NotNull Command<A, R> delegate) {
-            this.delegate = delegate;
+            super(delegate);
         }
 
         @Override

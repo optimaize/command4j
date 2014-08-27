@@ -38,7 +38,7 @@ public class CommandExecutionLoggerImpl<A,R> implements CommandExecutionLogger<A
 
     @Override
     public void before(@NotNull Command<A, R> command, @NotNull ExecutionContext ec, @NotNull Optional<A> arg) {
-        logger.info("Before {} with arg {}", command, arg);
+        logger.info("Before {} with arg {}", command.getName(), arg);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class CommandExecutionLoggerImpl<A,R> implements CommandExecutionLogger<A
         if (logArgumentInResult) {
             logger.info("After success {} for arg {} got result: {}", new Object[]{command, arg, result});
         } else {
-            logger.info("After success {} result: {}", command, result);
+            logger.info("After success {} result: {}", command.getName(), result);
         }
     }
 
@@ -55,7 +55,7 @@ public class CommandExecutionLoggerImpl<A,R> implements CommandExecutionLogger<A
         if (logArgumentInResult) {
             logger.info("After failure {} for arg {} got exception: {}", new Object[]{command, arg, exception});
         } else {
-            logger.info("After failure {} exception: {}", command, exception);
+            logger.info("After failure {} exception: {}", command.getName(), exception);
         }
     }
 }
