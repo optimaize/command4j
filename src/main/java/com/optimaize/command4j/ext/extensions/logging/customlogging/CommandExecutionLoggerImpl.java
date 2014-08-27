@@ -44,7 +44,7 @@ public class CommandExecutionLoggerImpl<A,R> implements CommandExecutionLogger<A
     @Override
     public void afterSuccess(@NotNull Command<A, R> command, @NotNull ExecutionContext ec, @NotNull Optional<A> arg, @Nullable R result) {
         if (logArgumentInResult) {
-            logger.info("After success {} for arg {} got result: {}", new Object[]{command, arg, result});
+            logger.info("After success {} for arg {} got result: {}", new Object[]{command.getName(), arg, result});
         } else {
             logger.info("After success {} result: {}", command.getName(), result);
         }
@@ -53,7 +53,7 @@ public class CommandExecutionLoggerImpl<A,R> implements CommandExecutionLogger<A
     @Override
     public void afterFailure(@NotNull Command<A, R> command, @NotNull ExecutionContext ec, @NotNull Optional<A> arg, @NotNull Exception exception) {
         if (logArgumentInResult) {
-            logger.info("After failure {} for arg {} got exception: {}", new Object[]{command, arg, exception});
+            logger.info("After failure {} for arg {} got exception: {}", new Object[]{command.getName(), arg, exception});
         } else {
             logger.info("After failure {} exception: {}", command.getName(), exception);
         }
