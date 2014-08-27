@@ -25,16 +25,16 @@ public class CommandExecutionLoggerImpl<A,R> implements CommandExecutionLogger<A
 
     @Override
     public void before(@NotNull Command<A, R> command, @NotNull ExecutionContext ec, @NotNull Optional<A> arg) {
-        logger.info("Before" + command.toString() + " with arg "+arg);
+        logger.info("Before {0} with arg {1}", command, arg);
     }
 
     @Override
     public void afterSuccess(@NotNull Command<A, R> command, @NotNull ExecutionContext ec, @NotNull Optional<A> arg, @Nullable R result) {
-        System.out.println("After success " + command.toString() + " result: " + result);
+        logger.info("After success {0} result: {1}", command, result);
     }
 
     @Override
     public void afterFailure(@NotNull Command<A, R> command, @NotNull ExecutionContext ec, @NotNull Optional<A> arg, @NotNull Exception exception) {
-        System.out.println("After failure " + command.toString() + " exception: " + exception);
+        logger.info("After failure {0} exception: {1}", command, exception);
     }
 }
