@@ -1,5 +1,11 @@
 # Command4j
 
+    <dependency>
+        <groupId>com.optimaize.command4j</groupId>
+        <artifactId>command4j</artifactId>
+        <version>0.5</version>
+    </dependency>
+
 ### ABOUT
 Command4j is a general-purpose command framework for Java (>= 7).
 It lets you program custom interceptors (wrappers, filters), and handle cross-cutting concerns.
@@ -133,3 +139,13 @@ MIT License
 ### AUTHORS
 
 Command4j was prototyped and written in large parts by Eike Kettner.
+
+### For Maven Users
+
+The library is available from Maven Central, the latest version is http://search.maven.org/#artifactdetails%7Ccom.optimaize.command4j%7Ccommand4j%7C0.5%7Cjar
+
+    <dependency>
+        <groupId>com.optimaize.command4j</groupId>
+        <artifactId>command4j</artifactId>
+        <version>0.5</version>
+    </dependency>
