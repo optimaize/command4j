@@ -5,7 +5,7 @@
     <groupId>com.optimaize.command4j</groupId>
     <artifactId>command4j</artifactId>
     <name>command4j</name>
-    <version>0.5-SNAPSHOT</version>
+    <version>0.5</version>
     <packaging>jar</packaging>
 
     <url>https://github.com/optimaize/command4j</url>
@@ -71,7 +71,7 @@
         <connection>scm:git:git://github.com/optimaize/command4j.git</connection>
         <developerConnection>scm:git:git@github.com:optimaize/command4j.git</developerConnection>
         <url>http://github.com/optimaize/command4j</url>
-      <tag>HEAD</tag>
+      <tag>command4j-0.5</tag>
   </scm>
 
 
