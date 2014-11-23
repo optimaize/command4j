@@ -5,10 +5,6 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Translates exceptions from one type to another.
  *
- * TODO this interface may as well be in some crema class (or guava or wherever).
- * At least in similar form, usable for all kinds of use cases. It's a very
- * non-domain-specific thing.
- *
  * @author Fabian Kessler
  */
 public interface ExceptionTranslator {
