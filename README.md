@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/optimaize/command4j.svg?branch=master)](https://travis-ci.org/optimaize/command4j)
+
+
 # Command4j
 
     <dependency>
