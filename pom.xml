@@ -33,7 +33,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <guava.version>15.0</guava.version>
+        <guava.version>18.0</guava.version>
         <slf4japi.version>1.6.6</slf4japi.version>
         <intellijannotations.version>12.0</intellijannotations.version>
         <testng.version>6.8.7</testng.version>
