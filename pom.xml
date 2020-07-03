@@ -37,8 +37,7 @@
         <slf4japi.version>1.6.6</slf4japi.version>
         <intellijannotations.version>12.0</intellijannotations.version>
         <testng.version>6.9.6</testng.version>
-        <compiler.source>1.7</compiler.source>
-        <compiler.target>1.7</compiler.target>
+        <java.version>1.7</java.version>
     </properties>
 
     <dependencies>
@@ -93,8 +92,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
                 <configuration>
-                    <source>${compiler.source}</source>
-                    <target>${compiler.target}</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
 
