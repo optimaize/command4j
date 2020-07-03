@@ -10,7 +10,7 @@
     </dependency>
 
 ### ABOUT
-Command4j is a general-purpose command framework for Java (>= 7).
+Command4j is a general-purpose command framework for Java 8+ (use version 0.5 for Java 7).
 It lets you program custom interceptors (wrappers, filters), and handle cross-cutting concerns.
 
 ### USE CASE EXAMPLES
@@ -120,7 +120,7 @@ around each command. An example is a logging extension that informs before and a
 
 ### DEPENDENCIES
 
-##### Guava (usually the latest version)
+##### Guava (version 21)
 For the `Optional` class, and the `ListeningExecutorService`, and probably some more.
 
 ##### org.slf4j slf4j-api
@@ -148,6 +148,16 @@ Command4j was prototyped and written in large parts by Eike Kettner.
 ### For Maven Users
 
 The library is available from Maven Central, the latest version is http://search.maven.org/#artifactdetails%7Ccom.optimaize.command4j%7Ccommand4j%7C0.5%7Cjar
+
+For Java 8+:
+
+    <dependency>
+        <groupId>com.optimaize.command4j</groupId>
+        <artifactId>command4j</artifactId>
+        <version>(version 0.6 to be released, currently snapshot)</version>
+    </dependency>
+
+For Java 7:
 
     <dependency>
         <groupId>com.optimaize.command4j</groupId>
