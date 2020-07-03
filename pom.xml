@@ -38,6 +38,8 @@
         <intellijannotations.version>12.0</intellijannotations.version>
         <testng.version>7.1.0</testng.version>
         <java.version>1.8</java.version>
+        
+        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
     </properties>
 
     <dependencies>
@@ -152,7 +154,7 @@
 
             <plugin>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
+                <version>${maven-gpg-plugin.version}</version>
             </plugin>
         </plugins>
     </build>
@@ -184,7 +186,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.4</version>
+                        <version>${maven-gpg-plugin.version}</version>
                         <!--<configuration>-->
                             <!--<passphrase>${gpg.passphrase}</passphrase>-->
                         <!--</configuration>-->
