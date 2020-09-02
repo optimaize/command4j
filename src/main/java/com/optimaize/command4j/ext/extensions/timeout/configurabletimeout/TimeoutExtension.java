@@ -20,6 +20,9 @@ import java.util.concurrent.TimeoutException;
 /**
  * Allows a maximal time for the execution, or aborts by throwing a {@link TimeoutException}.
  *
+ * <p><b>WARNING:</b> this extension wraps the commands and executes them in a separate thread.
+ * In Java, there's no way to execute a piece of code in the same thread while enforcing a time constraint.</p>
+ *
  * <p>See http://en.wikipedia.org/wiki/Timeout_(computing)</p>
  *
  * <p>Configuration:
