@@ -23,7 +23,7 @@ command4j offers a couple of built-in extensions to deal with situations such as
 * exception translation
 * enforce timeout
 
-Also a command can be executed asynchronously, no need to wait for the result.
+Also, a command can be executed asynchronously, no need to wait for the result.
 
 
 ### BASE CONCEPTS
