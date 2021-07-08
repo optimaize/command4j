@@ -6,7 +6,7 @@
     <dependency>
         <groupId>com.optimaize.command4j</groupId>
         <artifactId>command4j</artifactId>
-        <version>0.5</version>
+        <version>0.6</version>
     </dependency>
 
 ### ABOUT
