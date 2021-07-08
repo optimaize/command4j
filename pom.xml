@@ -175,6 +175,7 @@
     </distributionManagement>
 
     <profiles>
+
         <profile>
             <id>release-sign-artifacts</id>
             <activation>
@@ -182,15 +183,27 @@
                     <name>performRelease</name>
                     <value>true</value>
                 </property>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <build>
                 <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.7</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
                         <version>${maven-gpg-plugin.version}</version>
                         <!--<configuration>-->
-                            <!--<passphrase>${gpg.passphrase}</passphrase>-->
+                        <!--<passphrase>${gpg.passphrase}</passphrase>-->
                         <!--</configuration>-->
                         <executions>
                             <execution>
@@ -199,6 +212,11 @@
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
+                     <configuration>
+                    <gpgArguments>
+	          <arg>--batch</arg>
+                    </gpgArguments>
+    	     </configuration>
                             </execution>
                         </executions>
                     </plugin>
